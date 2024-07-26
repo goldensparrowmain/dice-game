@@ -21,14 +21,6 @@ const all_dice_roll = (total_dice) => {
     return rolls;
 }
 
-// Function to remove all occurrences of a wildcard roll (e.g., 3)
-const remove_wildcard = (random_rolls) => {
-    // exclude the wild_card number
-    if (random_rolls.includes(3)) {
-        random_rolls = random_rolls.filter(roll => roll != 3);
-    }
-    return random_rolls;
-}
 
 // Function to track the lowest total value based on dice rolls and wildcard rules
 const lowest_total_tracker = () => {
@@ -38,9 +30,9 @@ const lowest_total_tracker = () => {
         let roll = all_dice_roll(total_dice);
         if (roll.includes(wildcard_roll_number)) {
             let dice_to_remove = roll.filter((val) => (val === wildcard_roll_number)).length;
-            // let removed_three = remove_wildcard(roll);
             total_dice -= dice_to_remove;
         } else {
+            console.log(roll);
             total += Math.min(...roll);
             total_dice--;
         }
