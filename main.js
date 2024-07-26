@@ -32,7 +32,6 @@ const lowest_total_tracker = () => {
             let dice_to_remove = roll.filter((val) => (val === wildcard_roll_number)).length;
             total_dice -= dice_to_remove;
         } else {
-            console.log(roll);
             total += Math.min(...roll);
             total_dice--;
         }
